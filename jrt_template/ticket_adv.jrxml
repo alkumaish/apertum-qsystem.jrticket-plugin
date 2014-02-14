@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ticket" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="126d2239-5cd9-40f2-bfdf-135c0401fe81">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="caption" class="java.lang.String"/>
+	<parameter name="promo_text" class="java.lang.String"/>
+	<parameter name="bottom_text" class="java.lang.String"/>
+	<parameter name="customer_number" class="java.lang.Integer"/>
+	<parameter name="customer_prefix" class="java.lang.String"/>
+	<parameter name="customer_priority" class="java.lang.Integer"/>
+	<parameter name="customer_input_data" class="java.lang.String"/>
+	<parameter name="customer_id" class="java.lang.Long"/>
+	<parameter name="service_description" class="java.lang.String"/>
+	<parameter name="service_input_caption" class="java.lang.String"/>
+	<parameter name="service_name" class="java.lang.String"/>
+	<parameter name="service_pre_info_text" class="java.lang.String"/>
+	<parameter name="service_ticket_text" class="java.lang.String"/>
+	<parameter name="adv_customer_input_data" class="java.lang.String"/>
+	<parameter name="adv_customer_id" class="java.lang.Long"/>
+	<parameter name="adv_customer_time" class="java.util.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="387" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="d8ce1506-45f5-465b-b963-7e27e1a8b65b" x="-18" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Добро пожаловать]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="e1c4b826-d234-4e90-b772-b0d7f582576d" x="0" y="20" width="222" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{caption}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="c3aca2e8-b901-45eb-b783-8e01b0ffd3df" x="0" y="40" width="222" height="60" forecolor="#FF0066"/>
+				<textElement>
+					<font size="32" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{adv_customer_id}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="b16e766d-c8c8-46d7-b0c9-a14a3f9f4e5d" x="0" y="144" width="222" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{adv_customer_input_data}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="fdf3f401-d836-4a84-a725-437a98d009b2" x="-18" y="208" width="240" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{promo_text}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="b998a239-beb1-4f81-a8da-12e4515da6e0" stretchType="RelativeToBandHeight" x="0" y="228" width="222" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{bottom_text}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="79dba600-bead-4d31-84fb-660eaab31ec8" x="0" y="124" width="222" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{service_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="c3a4a5eb-5fa0-4945-b1a5-2ca0d2bbb4ae" x="0" y="164" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement uuid="a9cc0651-3aff-4dc0-a9e6-24601b116ed1" x="0" y="184" width="222" height="24"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="EAN128" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$P{customer_id}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<textField>
+				<reportElement uuid="3965415d-0470-42d7-9744-e5a533d315d5" x="100" y="100" width="122" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{adv_customer_time}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="fca8155c-d941-4f12-a5e3-f0c6ded7e496" x="0" y="100" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Дата назначения ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
