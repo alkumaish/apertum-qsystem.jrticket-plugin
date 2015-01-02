@@ -1,19 +1,29 @@
-caption
+ѕараметры дл€ использовани€:
 promo_text
 bottom_text
 
+ѕараметры простого посетител€:
 customer_number
 customer_prefix
 customer_priority
 customer_input_data
 customer_id
-
 service_description
 service_input_caption
 service_name
 service_pre_info_text
 service_ticket_text
+service (это класс QService)
+customer (это класс QCustomer)
 
+ѕараметры предварительно зарегистрированного посетител€:
 adv_customer_input_data
 adv_customer_id
+adv_customer
 adv_customer_time
+service_description
+service_input_caption
+service_name
+service_pre_info_text
+service_ticket_text
+service (это класс QService)
