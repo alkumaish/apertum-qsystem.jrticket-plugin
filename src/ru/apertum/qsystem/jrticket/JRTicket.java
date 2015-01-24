@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
 import java.util.HashMap;
+import javax.print.PrintService;
+import javax.print.PrintServiceLookup;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -86,7 +88,27 @@ public class JRTicket {
 /////////////////////////////////////////////        
 /////////////////////////////////////////////        
         /* Create an array of PrintServices */
-        //exporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, PrintServiceLookup.lookupDefaultPrintService());
+        /*
+         final PrintService[] ps = PrintServiceLookup.lookupPrintServices(null, null);
+         for (PrintService p : ps) {
+         System.out.println("ps=" + p.getName());
+         }
+         PrintService printService = PrintServiceLookup.lookupDefaultPrintService();
+         if (!"".equals(WelcomeParams.getInstance().printerName)) {
+         System.out.println("?=" + WelcomeParams.getInstance().printerName);
+         for (PrintService p : ps) {
+         if (p.getName().equalsIgnoreCase(WelcomeParams.getInstance().printerName)) {
+         System.out.println("!=" + p.getName());
+         printService = p;
+         break;
+         }
+         }
+         }
+         System.out.println(">> " + printService.getName());
+         exporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, printService);
+         */
+        exporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE,
+                WelcomeParams.getInstance().printService == null ? PrintServiceLookup.lookupDefaultPrintService() : WelcomeParams.getInstance().printService);
         //exporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE_ATTRIBUTE_SET, PrintServiceLookup.lookupDefaultPrintService().getAttributes());
         ///////////////////////////////////////////////       
         ///////////////////////////////////////////////       

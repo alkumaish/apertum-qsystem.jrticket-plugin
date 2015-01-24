@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Properties;
+import javax.print.PrintService;
 import javax.print.PrintServiceLookup;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRExporterParameter;
@@ -89,7 +90,9 @@ public class PrintTicket implements IPrintTicket {
         }
         final JRPrintServiceExporter exporter = new JRPrintServiceExporter();
 
-        exporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, PrintServiceLookup.lookupDefaultPrintService());
+        
+        exporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE,
+                WelcomeParams.getInstance().printService == null ? PrintServiceLookup.lookupDefaultPrintService() : WelcomeParams.getInstance().printService);
         //exporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE_ATTRIBUTE_SET, PrintServiceLookup.lookupDefaultPrintService().getAttributes());
 
         exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
